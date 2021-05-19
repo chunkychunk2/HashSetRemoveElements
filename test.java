@@ -9,20 +9,30 @@ import java.io.*;
 */
 
 public class test {
-    public static void main(String[] args)  {
-
-        Set<Integer> set = new HashSet<>();
+    public static Set<Integer> createSet() {
+        // напишите тут ваш код
+        Set<Integer> numbers = new HashSet<>();
         for (int n = 0; n < 20; n++) {
-            set.add(n);
+            numbers.add(n);
         }
+        return numbers;
 
+    }
+
+    public static Set<Integer> removeAllNumbersGreaterThan10(Set<Integer> set) {
         Set<Integer> copy = new HashSet<>(set);
         for (Integer number : copy) {
             if (number > 10) {
                 set.remove(number);
             }
         }
-        System.out.println(set);
+        return set;
+    }
 
+    public static void main(String[] args) {
+        Set<Integer> set = createSet();
+        System.out.println(set);
+        removeAllNumbersGreaterThan10(set);
+        System.out.println(set);
     }
 }
